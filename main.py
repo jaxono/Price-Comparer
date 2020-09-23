@@ -33,9 +33,12 @@ def get_valid_money_amount(message):
 
 # Code starts here
 while 1:
+	print("""This program is designed to compare a list of products and tell you which ones are the most expensive and cheapest per 100g.
+First you will need to answer some questions then you can enter your list of items.
+	""")
 	# Get min and max prices
-	money_max = get_valid_money_amount("How much money do you have that you can spend: ")
-	money_min = get_valid_money_amount("What is the minimum amount of money that you would want to spend: ")
+	money_max = get_valid_money_amount("How much money do you have that you can spend in dollars? (Eg. 100) ")
+	money_min = get_valid_money_amount("What is the minimum amount of money that you would want to spend? (Eg. 10) ")
 	# Make sure that the minimum amount of money is not larger the maximum
 	if money_min > money_max:
 		print("You cannot spend a minimum amount of money if it is more than you have.")
@@ -49,6 +52,14 @@ while 1:
 items = []
 
 # Get list of ingredients
+print("""
+Now you will need to enter a list of the items you would like to compare, type done when you are finished.
+Eg.
+5 6 SuperBrand Plain Flour
+4 8 GoodBrand Self Raising Flour
+12 3 ExpensiveFoodCo Flour
+done
+""")
 while 1:
 	# Get ingredient text
 	item = input("Enter ingredient: ").strip().lower()
