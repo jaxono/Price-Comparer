@@ -3,10 +3,11 @@ import item_class
 
 TERMINATION_PHRASES = {"xxx", "done", "end", "finish", "finished"}
 
-items = []
-
-# Get list of ingredients
-print("""
+def get_ingrediants():
+	items = []
+	
+	# Get list of ingredients
+	print("""
 Now you will need to enter a list of the items you would like to compare, type done when you are finished.
 Eg.
 5 6 SuperBrand Plain Flour
@@ -15,7 +16,7 @@ Eg.
 done
 """)
 
-def get_ingrediants():
+	
 	while 1:
 		# Get ingredient text
 		item = input("Enter ingredient: ").strip().lower()
