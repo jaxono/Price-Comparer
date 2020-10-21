@@ -4,3 +4,4 @@ class Item:
 		self.mass = mass
 		self.name = name
 		self.price_per_100g = price_per_100g
+		self.recommended = False

@@ -1,5 +1,6 @@
 import math
 import item_class
+import random
 
 def sort_and_print(items, money_min, money_max):
 	# Sort items by weight / 100g
@@ -26,8 +27,13 @@ def sort_and_print(items, money_min, money_max):
 		# Insert item
 		sorted_items.insert(insert_pos, item)
 	sorted_items.pop(0)
-	sorted_items.reverse()
 	
+	for x in range(len(sorted_items)):
+		if not (sorted_items[x].price < money_min or sorted_items[x].price > money_max):
+			sorted_items[x].recommended = True
+			break
+	
+	sorted_items.reverse()
 	
 	print()
 	# Show each item
@@ -37,5 +43,15 @@ def sort_and_print(items, money_min, money_max):
 			item_in_range_str = "Too expensive."
 		if item.price < money_min:
 			item_in_range_str = "Too cheap."
+		if item.recommended:
+			item_in_range_str = "Recommended."
 		print(item.name + " at " + str(item.mass) + "g for $" + str(item.price) + ", $" + str(item.price_per_100g) + " per 100g. " + item_in_range_str)
 		pass
+
+# items = []
+# for x in range(10):
+# 	mass = random.randint(1, 1000000) / 1000.
+# 	price = random.randint(1, 200000) / 1000.
+# 	items.append(item_class.Item(price, mass, "Item", price / mass * 100))
+#
+# sort_and_print(items, 10, 100)
